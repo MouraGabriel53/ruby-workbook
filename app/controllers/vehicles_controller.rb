@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
     # Estabelecendo hooks
     # before_action :fecth_vehicle -> chama a função fecth_vehicle antes de chamar os endpoints. Isso se aplica a todas as funções
-    before_action fecth_vehicle, only: %i[ show edit update destroy ]
+    before_action :fetch_vehicle, only: %i[ show edit update destroy ]
 
     def index
       @vehicles = Vehicle.all.order(created_at: :asc)
@@ -69,7 +69,7 @@ class VehiclesController < ApplicationController
     end
 
     # Aplicando DRY (Don't Repeat Yourself)
-    def fecth_vehicle
+    def fetch_vehicle
       @vehicle = Vehicle.find(params[:id])
     end
 end

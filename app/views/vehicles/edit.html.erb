@@ -1,33 +1,7 @@
 <h1>Edit Vehicle</h1>
 
-<% if @vehicle.errors.any? %>
-    
-    <% @vehicle.errors.full_messages.each do |message| %>
-        <p>
-            <%= message %>
-        </p>
-    <% end %>
+<%# Partial errors %>
+<%= render 'shared/errors', object: @vehicle %>
 
-<% end %>
-
-<%= form_with model: @vehicle, data: { turbo: false } do |form| %>
-    <p>
-        <%= form.label :brand, "Brand" %>
-        <%= form.text_field :brand %>
-    </p>
-
-    <p>
-        <%= form.label :model, "Model" %>
-        <%= form.text_field :model %>
-    </p>
-
-    <p>
-        <%= form.label :year, "Year" %>
-        <%= form.number_field :year %>
-    </p>
-
-    <p>
-        <%= form.submit %>
-    </p>
-
-<% end %>
+<%# Partial form %>
+<%= render 'form', vehicle: @vehicle %>     

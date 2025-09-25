@@ -4,15 +4,4 @@
     <%= link_to "New Vehicle", new_vehicle_path %>
 </p>
 
-<% @vehicles.each do |vehicle| %>
-    <p> 
-        <%= vehicle.id %> |
-        <%= vehicle.brand %> |  
-        <%= vehicle.model %> | 
-        <%= vehicle.year %> |
-        <%= link_to "Detail", vehicle_path(vehicle) %> |
-        <%= link_to "Edit", edit_vehicle_path(vehicle) %> |
-        <%= button_to "Erase", vehicle_path(vehicle), method: :delete %>
-    </p>
-<% end %>
-
+<%= render @vehicles %>
