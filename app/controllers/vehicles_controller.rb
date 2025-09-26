@@ -14,7 +14,10 @@ class VehiclesController < ApplicationController
 
     def create
       # @vehicle = Vehicle.new(params[:vehicle]) -> não pode passar os parâmetros direto por segurança devem ser verificados
+
       @vehicle = Vehicle.new(vehicle_params)
+
+      # response = Vehicle::CreateVehicle.call(vehicle)
 
       # Guard Clauses - Método top - Erre cedo (early return)
 
